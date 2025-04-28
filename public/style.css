@@ -1,0 +1,94 @@
+body{
+    background-color: hsl(0, 0%, 90%);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+h1{
+    text-align: center;
+    color: hsl(232, 17%, 35%);
+    font-size: 2.5em;
+}
+.main-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.task-input{
+    font-size: 1.1em;
+    width: 450px;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
+}
+.task-input:focus{
+    outline: none;
+}
+#task-button{
+    font-size: 1.1em;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: hsl(232, 17%, 35%);
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
+    margin-left: 10px;
+}
+#task-button:hover{
+    background-color: hsl(232, 17%, 25%);
+}
+#list-container{
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    max-width: 1000px;
+    background-color: white;
+    padding: 12.5px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li span {
+    font-size: 1.2em;
+    text-align: left;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+li button {
+    background-color: hsl(232, 17%, 35%);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
+    flex-shrink: 0;
+    margin: 5px;
+}
+#deleteBtn{
+    background-color: hsl(0, 100%, 45%);
+}
+#deleteBtn:hover{
+    background-color: hsl(0, 100%, 35%);
+}
+#editBtn{
+    background-color: hsl(211, 91%, 50%);
+    padding: 10px 15px;
+}
+#editBtn:hover{
+    background-color: hsl(211, 91%, 40%);
+}

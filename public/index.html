@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-container">
+        <h1>Task Manager</h1>
+    </header>
+
+    <section class="main-container">
+        <form class="task-form">
+            <input type="text" class="task-input" placeholder="Enter a new task">
+            <button id="task-button">Add Task</button>
+        </form>
+    </section>
+
+    <section id="list-container">
+        <ul class="task-list">
+            <li class="task-item">
+                <span id="task-${index}">Throw out the garbage</span>
+                <button onclick="editTask()" id="editBtn">Edit</button>
+                <button onclick="deleteTask()" id="deleteBtn">Delete</button>
+            </li>
+        </ul>
+    </section>
+    
+    <script src="main.js"></script>
+</body>
+</html>
