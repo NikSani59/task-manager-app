@@ -37,7 +37,7 @@ h1{
     margin-left: 10px;
 }
 #task-button:hover{
-    background-color: hsl(232, 17%, 25%);
+    background-color: hsl(232, 17%, 45%);
 }
 #list-container{
     font-family: Arial, sans-serif;
@@ -69,26 +69,34 @@ li span {
 }
 
 li button {
+    font-size: 15px;
     background-color: hsl(232, 17%, 35%);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 17px;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
     flex-shrink: 0;
     margin: 5px;
 }
-#deleteBtn{
-    background-color: hsl(0, 100%, 45%);
+li button:hover {
+    background-color: hsl(232, 17%, 45%);
 }
-#deleteBtn:hover{
-    background-color: hsl(0, 100%, 35%);
+li input[type="text"] {
+    font-size: 1.1em;
+    width: 90%;
+    padding: 10px;
+    border: 1.5px solid hsl(232, 17%, 35%);
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
 }
-#editBtn{
-    background-color: hsl(211, 91%, 50%);
-    padding: 10px 15px;
+li input[type="text"]:focus {
+    outline: none;
 }
-#editBtn:hover{
-    background-color: hsl(211, 91%, 40%);
+li .edit-buttons {
+    margin-top: 10px;
+}
+li .edit-buttons:hover {
+    background-color: hsl(232, 17%, 45%);;
 }

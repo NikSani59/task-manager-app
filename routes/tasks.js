@@ -14,6 +14,20 @@ router.post('/', (req, res) => {
     res.status(201).json({ message: 'Task created successfully' });
 });
 
+// Update a task
+router.put('/:index', (req, res) => {
+    const index = req.params.index;
+    const { task } = req.body;
+    if (!tasks[index]) {
+        return res.status(404).json({ error: 'Task not found' });
+    }
+    if (!task) {
+        return res.status(400).json({ error: 'Task cannot be empty' });
+    }
+    tasks[index] = task;
+    res.status(200).json({ message: 'Task updated successfully' });
+});
+
 // Get all tasks
 router.get('/', (req, res) => {
     res.status(200).json(tasks);

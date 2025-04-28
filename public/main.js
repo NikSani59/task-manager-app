@@ -32,7 +32,37 @@ async function loadTasks() {
             <button onclick="deleteTask(${index})" id="deleteBtn">Delete</button>
     </li>`;
     });
+}
+function editTask(index) {
+    const taskElement = document.querySelector(`#task-${index}`);
+    const taskText = taskElement.innerText;
 
+    deleteBtn = document.getElementById('deleteBtn').style.display = 'none';
+    editBtn = document.getElementById('editBtn').style.display = 'none';
+
+
+    taskElement.innerHTML = `
+        <input type="text" id="editInput-${index}" value="${taskText}">
+        <button onclick="saveTask(${index})" class="edit-buttons" id="saveBtn">Save</button>
+        <button onclick="cancelTask(${index}, '${taskText}')" class="edit-buttons" id="cancelBtn">Cancel</button>
+    `;
+}
+async function saveTask(index) {
+    const newTask = document.getElementById(`editInput-${index}`).value;
+    await fetch(`/tasks/${index}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ task: newTask })
+    });
+    await loadTasks();
+}
+function cancelTask(index, currentTask) {
+    const taskElement = document.getElementById(`task-${index}`);
+    taskElement.innerHTML = currentTask;
+    deleteBtn = document.getElementById('deleteBtn').style.display = 'block';
+    editBtn = document.getElementById('editBtn').style.display = 'block';
 }
 async function deleteTask(index) {
     await fetch(`/tasks/${index}`, {
