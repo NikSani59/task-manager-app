@@ -27,18 +27,27 @@ async function loadTasks() {
     data.forEach((task, index) => {
         list.innerHTML += `
         <li class="task-item">
-            <span id="task-${index}">${task}</span>
+            <input type="checkbox" id="task-checkbox-${index}" class="task-checkbox">
+            <span id="task-${index}" class="task-text">${task}</span>
             <button onclick="editTask(${index})" id="editBtn">Edit</button>
             <button onclick="deleteTask(${index})" id="deleteBtn">Delete</button>
     </li>`;
     });
 }
+function checkTask(index) {
+    const taskElement = document.querySelector(`#task-${index}`).value;
+    const checkbox = document.querySelector(`.task-checkbox-${index}`);
+    if (checkbox.checked) {
+        taskElement.style.textDecoration = 'line-through';
+    }
+}
 function editTask(index) {
     const taskElement = document.querySelector(`#task-${index}`);
     const taskText = taskElement.innerText;
 
-    deleteBtn = document.getElementById('deleteBtn').style.display = 'none';
-    editBtn = document.getElementById('editBtn').style.display = 'none';
+    document.getElementById('deleteBtn').style.display = 'none';
+    document.getElementById('editBtn').style.display = 'none';
+    document.getElementsByClassName('task-checkbox')[index].style.display = 'none';
 
 
     taskElement.innerHTML = `
@@ -63,6 +72,7 @@ function cancelTask(index, currentTask) {
     taskElement.innerHTML = currentTask;
     deleteBtn = document.getElementById('deleteBtn').style.display = 'block';
     editBtn = document.getElementById('editBtn').style.display = 'block';
+    document.getElementsByClassName('task-checkbox')[index].style.display = 'block';
 }
 async function deleteTask(index) {
     await fetch(`/tasks/${index}`, {
