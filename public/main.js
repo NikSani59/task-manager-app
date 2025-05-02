@@ -10,7 +10,7 @@ form.addEventListener('submit', async (event) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ task })
+            body: JSON.stringify({ name: task })
         });
         document.querySelector('.task-input').value = '';
         await loadTasks();
@@ -24,58 +24,58 @@ async function loadTasks() {
     const res = await fetch('/tasks');
     const data = await res.json();
     list.innerHTML = '';
-    data.forEach((task, index) => {
+    data.forEach((task) => {
         list.innerHTML += `
-        <li class="task-item">
-            <input type="checkbox" id="task-checkbox-${index}" class="task-checkbox">
-            <span id="task-${index}" class="task-text">${task}</span>
-            <button onclick="editTask(${index})" id="editBtn">Edit</button>
-            <button onclick="deleteTask(${index})" id="deleteBtn">Delete</button>
-    </li>`;
-    });
-}
-function checkTask(index) {
-    const taskElement = document.querySelector(`#task-${index}`).value;
-    const checkbox = document.querySelector(`.task-checkbox-${index}`);
+          <li class="task-item">
+            <input type="checkbox" class="task-checkbox" id="task-checkbox-${task._id}">
+            <span id="task-${task._id}" class="task-text">${task.name}</span>
+            <button onclick="editTask('${task._id}')" id="editBtn-${task._id}">Edit</button>
+            <button onclick="deleteTask('${task._id}')" id="deleteBtn-${task._id}">Delete</button>
+          </li>`;
+});
+};
+function checkTask(_id) {
+    const taskElement = document.querySelector(`#task-${_id}`).value;
+    const checkbox = document.querySelector(`.task-checkbox-${_id}`);
     if (checkbox.checked) {
         taskElement.style.textDecoration = 'line-through';
     }
 }
-function editTask(index) {
-    const taskElement = document.querySelector(`#task-${index}`);
+function editTask(_id) {
+    const taskElement = document.querySelector(`#task-${_id}`);
     const taskText = taskElement.innerText;
 
-    document.getElementById('deleteBtn').style.display = 'none';
-    document.getElementById('editBtn').style.display = 'none';
-    document.getElementsByClassName('task-checkbox')[index].style.display = 'none';
+    document.getElementById(`deleteBtn-${_id}`).style.display = 'none';
+    document.getElementById(`editBtn-${_id}`).style.display = 'none';
+    document.querySelector(`#task-checkbox-${_id}`).style.display = 'none';
 
 
     taskElement.innerHTML = `
-        <input type="text" id="editInput-${index}" value="${taskText}">
-        <button onclick="saveTask(${index})" class="edit-buttons" id="saveBtn">Save</button>
-        <button onclick="cancelTask(${index}, '${taskText}')" class="edit-buttons" id="cancelBtn">Cancel</button>
+        <input type="text" id="editInput-${_id}" value="${taskText}">
+        <button onclick="saveTask('${_id}')" class="edit-buttons" id="saveBtn">Save</button>
+        <button onclick="cancelTask('${_id}', '${taskText}')" class="edit-buttons" id="cancelBtn">Cancel</button>
     `;
 }
-async function saveTask(index) {
-    const newTask = document.getElementById(`editInput-${index}`).value;
-    await fetch(`/tasks/${index}`, {
+async function saveTask(_id) {
+    const newTask = document.getElementById(`editInput-${_id}`).value;
+    await fetch(`/tasks/${_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ task: newTask })
+        body: JSON.stringify({ name: newTask })
     });
     await loadTasks();
 }
-function cancelTask(index, currentTask) {
-    const taskElement = document.getElementById(`task-${index}`);
+function cancelTask(_id, currentTask) {
+    const taskElement = document.getElementById(`task-${_id}`);
     taskElement.innerHTML = currentTask;
-    deleteBtn = document.getElementById('deleteBtn').style.display = 'block';
-    editBtn = document.getElementById('editBtn').style.display = 'block';
-    document.getElementsByClassName('task-checkbox')[index].style.display = 'block';
+    document.getElementById(`deleteBtn-${_id}`).style.display = 'block';
+    document.getElementById(`editBtn-${_id}`).style.display = 'block';
+    document.querySelector(`#task-checkbox-${_id}`).style.display = 'block';
 }
-async function deleteTask(index) {
-    await fetch(`/tasks/${index}`, {
+async function deleteTask(_id) {
+    await fetch(`/tasks/${_id}`, {
         method: 'DELETE'
     });
     await loadTasks();

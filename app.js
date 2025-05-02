@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // ENVIRONMENT VARIABLES
-const mongoURI = process.env.MONGO_URL;
+const mongoURI = process.env.MONGO_URI;
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 // middleware
 app.use(express.json());
-express.urlencoded({ extended: false });
+app.use(express.urlencoded({ extended: true }));
 
 // connect the frontend to the backend
 app.use(express.static(path.join(__dirname, 'public')));

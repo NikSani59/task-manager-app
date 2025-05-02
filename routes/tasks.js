@@ -11,13 +11,13 @@ const router = express.Router();
 router.post('/', createTask);
 
 // Update a task
-router.put('/:index', updateTask);
+router.put('/:id', updateTask);
 
 // Get all tasks
 router.get('/', getTasks);
 
 // Delete a task
-router.delete('/:index', deleteTask);
+router.delete('/:id', deleteTask);
     
 // Export the router
 export default router;
