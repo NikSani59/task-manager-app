@@ -1,47 +1,23 @@
 import express from 'express';
+import {createTask,
+        updateTask,
+        getTasks,
+        deleteTask
+} from "../controllers/taskController.js";
+
 const router = express.Router();
 
-// In-memory task storage
-const tasks = [];
-
 // Create a new task
-router.post('/', (req, res) => {
-    const { task } = req.body;
-    if (!task) {
-        return res.status(400).json({ error: 'Task cannot be empty' });
-    }
-    tasks.push(task);
-    res.status(201).json({ message: 'Task created successfully' });
-});
+router.post('/', createTask);
 
 // Update a task
-router.put('/:index', (req, res) => {
-    const index = req.params.index;
-    const { task } = req.body;
-    if (!tasks[index]) {
-        return res.status(404).json({ error: 'Task not found' });
-    }
-    if (!task) {
-        return res.status(400).json({ error: 'Task cannot be empty' });
-    }
-    tasks[index] = task;
-    res.status(200).json({ message: 'Task updated successfully' });
-});
+router.put('/:index', updateTask);
 
 // Get all tasks
-router.get('/', (req, res) => {
-    res.status(200).json(tasks);
-});
+router.get('/', getTasks);
 
 // Delete a task
-router.delete('/:index', (req, res) => {
-    const index = req.params.index;
-    if (!tasks[index]) {
-        return res.status(404).json({ error: 'Task not found' });
-    }
-    tasks.splice(index, 1);
-    res.status(200).json({ message: 'Task deleted successfully' });
-});
+router.delete('/:index', deleteTask);
     
 // Export the router
 export default router;
