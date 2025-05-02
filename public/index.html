@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager | Home</title>
     <link rel="stylesheet" href="style.css">
+    <link type="image/png" rel="icon" href="favicon.png">
 </head>
 <body>
     <header class="header-container">
@@ -15,12 +16,12 @@
         <form class="task-form">
             <input type="text" class="task-input" placeholder="Enter a new task">
             <button id="task-button">Add Task</button>
-            <div id="list-container">
-                <ul class="task-list"></ul>
-            </div>
         </form>
     </section>
-
+    
+    <section id="list-container">
+        <ul class="task-list"></ul>
+    </section>
     <script src="main.js"></script>
 </body>
 </html>

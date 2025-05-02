@@ -1,5 +1,5 @@
 body{
-    background-color: hsl(0, 0%, 90%);
+    background: linear-gradient(90deg, hsl(0, 0%, 91%), hsl(0, 0%, 95%));
     text-align: center;
     font-family: 'Arial', sans-serif;
 }
@@ -52,7 +52,7 @@ ul{
 li {
     max-width: 1000px;
     background-color: white;
-    padding: 12.5px;
+    padding: 10px;
     margin: 10px auto;
     border-radius: 10px;
     box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
@@ -84,6 +84,7 @@ li button:hover {
     background-color: hsl(232, 17%, 45%);
 }
 li input[type="text"] {
+    display: flex;
     font-size: 1.1em;
     width: 90%;
     padding: 10px;
@@ -101,6 +102,7 @@ li .edit-buttons:hover {
     background-color: hsl(232, 17%, 45%);;
 }
 .task-checkbox {
+    margin-left: 10px;
     margin-right: 12.5px;
     appearance: none;
     width: 20px;
