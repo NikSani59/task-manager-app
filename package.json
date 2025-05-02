@@ -2,6 +2,7 @@
   "name": "task_manager_app",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node app",
     "dev": "node --watch --env-file=.env app"

@@ -1,12 +1,21 @@
-const express = require('express');
+import express from 'express';
+import path from 'path';
+import tasks from './routes/tasks.js';
+import { fileURLToPath } from 'url';
+
 const app = express();
-const path = require('path');
-const tasks = require('./routes/tasks');
+
+// Get the current directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const port = process.env.PORT || 3000;
 
 // middleware
 app.use(express.json());
+express.urlencoded({ extended: true });
+
+// connect the frontend to the backend
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes

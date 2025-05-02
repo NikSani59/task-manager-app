@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 // In-memory task storage
@@ -44,4 +44,4 @@ router.delete('/:index', (req, res) => {
 });
     
 // Export the router
-module.exports = router;
+export default router;
