@@ -3,18 +3,17 @@ import Task from '../models/taskModel.js';
 // @desc  Create a new task
 // @route POST /tasks
 export const createTask = async (req, res) => {
-    try{
+    try {
         const { name } = req.body;
         if (!name) {
             return res.status(400).json({ error: 'Task cannot be empty' });
         }
-        const task =  await Task.create({ name });
-        res.status(201).json({ message: 'Task created successfully' });
-    }
-    catch(err) {
+        const task = await Task.create({ name });
+        res.status(201).json({ message: 'Task created successfully', task });
+    } catch (err) {
         res.status(500).json({ error: err.message });
     }
-}
+};
 
 // @desc  Get all tasks
 // @route GET /tasks

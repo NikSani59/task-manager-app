@@ -30,7 +30,7 @@ app.use('/tasks', tasks);
 
 // connect server to the database (mongoDB)
 mongoose.connect(mongoURI).then(() => {
-  console.log('MongoDB connected successfully');
+  console.log('MongoDB connected successfully', mongoURI);
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
