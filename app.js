@@ -12,6 +12,7 @@ dotenv.config();
 const mongoURI = process.env.MONGO_URI;
 const port = process.env.PORT || 3000;
 
+// set up express
 const app = express();
 
 // Get the current directory
