@@ -12,6 +12,7 @@ const taskSchema = new mongoose.Schema({
     }
 });
 
+// creating a variable for the task model
 const Task = mongoose.model("Task", taskSchema);
 
 export default Task;

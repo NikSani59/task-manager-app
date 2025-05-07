@@ -51,9 +51,11 @@ function editTask(_id) {
 
 
     taskElement.innerHTML = `
-        <input type="text" id="editInput-${_id}" value="${taskText}">
-        <button onclick="saveTask('${_id}')" class="edit-buttons" id="saveBtn">Save</button>
-        <button onclick="cancelTask('${_id}', '${taskText}')" class="edit-buttons" id="cancelBtn">Cancel</button>
+        <div class="edit-container">
+            <input type="text" id="editInput-${_id}" value="${taskText}">
+            <button onclick="saveTask('${_id}')" class="edit-buttons" id="saveBtn">Save</button>
+            <button onclick="cancelTask('${_id}', '${taskText}')" class="edit-buttons" id="cancelBtn">Cancel</button>
+        </div>
     `;
 }
 async function saveTask(_id) {
