@@ -10,13 +10,11 @@ body{
 .header-container {
     background-color: hsl(232, 17%, 35%);;
     display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
 }
 .header-title {
-    display: flex;
-    justify-content: column;
-    align-items: center;
     padding: 20px 10px;
-    margin: auto;
 }
 .header-title h1{
     color: #ffffff;
@@ -25,19 +23,21 @@ body{
 }
 .header-nav {
     display: flex;
+    align-items: center;
     justify-content: column;
     padding: 40px 10px;
+    gap: 5px;
 }
 .header-nav a {
     color: white;
     padding: 0px 10px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 .nav-link{
     text-decoration: none;
 }
 .nav-link:hover{
-    color: hsl(232, 17%, 25%);
+    text-decoration: underline;
 }
 .main-container{
     display: flex;
@@ -52,7 +52,7 @@ body{
     align-items: center;
     width: 700px;
     height: 800px;
-    background-color: hsl(0, 0%, 71%);
+    background-color: hsl(0, 0%, 81%);
     border-radius: 20px;
     box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.3);
 }
