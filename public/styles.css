@@ -8,12 +8,14 @@ body{
     font-family: 'Arial', sans-serif;
 }
 .header-container {
-    background-color: hsl(232, 17%, 35%);;
+    background-color: hsl(232, 17%, 35%);
     display: flex;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 10px 30px;
 }
 .header-title {
+    display: flex;
+    align-items: center;
     padding: 20px 10px;
 }
 .header-title h1{
@@ -25,10 +27,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: column;
-    padding: 40px 10px;
-    gap: 5px;
+    padding: 40px 20px;
+    gap: 10px;
 }
 .header-nav a {
+    display: flex;
+    align-items: center;
     color: white;
     padding: 0px 10px;
     font-size: 1.3rem;
@@ -44,7 +48,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-bottom: 40px;
+    padding-bottom: 90px;
 }
 .task-container{
     padding-bottom: 30px;
@@ -107,6 +111,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 li span {
@@ -188,4 +193,50 @@ li .edit-buttons:hover {
     text-decoration: line-through;
     color: #888; 
     transition: all 0.3s ease;
+}
+.footer {
+    font-size: 1.2rem;
+    min-height: 100px;
+    width: 100%;
+    background-color: hsl(232, 17%, 35%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+.footer-container{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer-icons{
+    margin-left: 80px;
+    display: flex;
+    gap: 10px;
+}
+.footer-icons a{
+    padding: 5px;
+    font-size: 2rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+.facebook:hover{
+    color: #3b5998;
+}
+.twitter:hover{
+    color: #1da1f2;
+}
+.github:hover{
+    color: #333;
+}
+.linkedin:hover{
+    color: #0077b5;
 }
