@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <header className="header-container">
       <div className="header-title">
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" }}>
           <h1>Task Manager</h1>
         </Link>
       </div>
