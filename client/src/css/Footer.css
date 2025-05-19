@@ -1,0 +1,46 @@
+.footer {
+    font-size: 1.2rem;
+    min-height: 100px;
+    width: 100%;
+    background-color: hsl(232, 17%, 35%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+.footer-container{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer-icons{
+    margin-left: 80px;
+    display: flex;
+    gap: 10px;
+}
+.footer-icons a{
+    padding: 5px;
+    font-size: 2rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+.facebook:hover{
+    color: #3b5998;
+}
+.twitter:hover{
+    color: #1da1f2;
+}
+.github:hover{
+    color: #333;
+}
+.linkedin:hover{
+    color: #0077b5;
+}

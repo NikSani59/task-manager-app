@@ -1,0 +1,36 @@
+.header-container {
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+.header-title {
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+}
+.header-title h1{
+    color: var(--font-color);
+    font-size: 2.5em;
+    font-weight: 900;
+}
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: column;
+    padding: 40px 20px;
+    gap: 10px;
+}
+.header-nav a {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 0px 10px;
+    font-size: 1.3rem;
+}
+.nav-link{
+    text-decoration: none;
+}
+.nav-link:hover{
+    text-decoration: underline;
+}

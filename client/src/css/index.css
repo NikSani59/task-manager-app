@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('../public/fonts/Roboto-Regular.ttf') format('truetype');
+}
+:root {
+    --font-body: 'Roboto', 'Poppins';
+    --font-color: #ffffff;
+    --color-bg: #e6e6e6;
+    --color-primary: #4a4e68;
+    --color-secondary: #cccccc;;
+    --color-primary-hover: #5f6486;
+    --box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
+}
+* {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
