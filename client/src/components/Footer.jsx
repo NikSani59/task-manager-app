@@ -12,8 +12,8 @@ function Footer() {
             <div class="footer-icons">
                 <a class="facebook" href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>  
                 <a class="twitter" href="https://twitter.com/NikSani59" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="github" href="https://github.com/NikSani59" target="_blank"><i class="fab fa-github"></i></a>
-                <a class="linkedin" href="https://www.linkedin.com/in/niksani59/" target="_blank"><i class="fab fa-linkedin"></i></a>    
+                <a class="github" href="https://www.facebook.com/Alexander.Baratashvili.59/" target="_blank"><i class="fab fa-github"></i></a>
+                <a class="linkedin" href="https://www.linkedin.com/in/alexander-baratashvili-785788363/" target="_blank"><i class="fab fa-linkedin"></i></a>    
             </div>
         </div>
     </footer>
