@@ -31,7 +31,7 @@
 .task-input:focus{
     outline: none;
 }
-#task-button{
+.task-button{
     font-size: 1.1em;
     padding: 15px 20px;
     border: none;
@@ -42,31 +42,30 @@
     box-shadow: var(--box-shadow);
     margin-left: 10px;
 }
-#task-button:hover{
+.task-button:hover{
     background-color: var(--color-primary-hover);
 }
-list-container{
+.list-container{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-#list-container ul{
+.list-container ul{
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    gap: 20px;
+    gap: 30px;
 }
 li {
     display: flex;
     width: 600px;
-    background-color: white;
+    background-color: white; 
     padding: 15px 0px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 li span {

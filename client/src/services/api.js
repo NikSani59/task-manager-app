@@ -20,5 +20,8 @@ export const updateTask = (id, name) =>
     body: JSON.stringify({ name }),
   });
   
-export const deleteTask = (id) => 
-    fetch(`/tasks/${id}`, { method: "DELETE" });
+export const deleteTask = async (id) => {
+  const res = await fetch(`/tasks/${id}`, { method: "DELETE" });
+  if (!res.ok) throw new Error('Failed to delete task');
+  return res.json();
+};

@@ -23,11 +23,16 @@ const __dirname = path.dirname(__filename);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// connect the frontend to the backend
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // routes
 app.use('/tasks', tasks);
+
+// Fallback to index.html for SPA routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
 
 // connect server to the database (mongoDB)
 mongoose.connect(mongoURI).then(() => {

@@ -32,6 +32,16 @@ function TaskForm({ refresh }) {
     }
   };
 
+  const handleDeleteTask = async (id) => {
+    console.log("Deleting task with ID:", id);
+    try {
+      await deleteTask(id);
+      fetchTasks(); // refresh UI
+    } catch (err) {
+      console.error("Error deleting task:", err);
+      alert("Failed to delete task");
+    }
+  }
   const handleToggleComplete = (id) => {
 
   }
@@ -39,6 +49,7 @@ function TaskForm({ refresh }) {
   const handleEditTask = (id) => {
 
   }
+
 
   return (
     <main className="main-container">
@@ -50,7 +61,7 @@ function TaskForm({ refresh }) {
             className="task-input"
             placeholder="Enter a new task"
           />
-          <button id="task-button">Add Task</button>
+          <button className="task-button">Add Task</button>
         </form>
         <div className="list-container">
           <ul className="task-list">
