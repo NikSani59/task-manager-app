@@ -42,9 +42,6 @@ function TaskForm({ refresh }) {
       alert("Failed to delete task");
     }
   }
-  const handleToggleComplete = (id) => {
-
-  }
   
   const handleEditTask = (id) => {
 

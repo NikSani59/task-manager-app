@@ -12,7 +12,7 @@ function NavBar() {
       </div>
       <nav className="header-nav">
         <Link to="/" className="nav-link">Home</Link>
-        <Link to="#" className="nav-link">About</Link>
+        <Link to="/about" className="nav-link">About</Link>
         <Link to="#" className="nav-link">Terms Of Service</Link>
         <Link to="#"  className="nav-link">FAQ</Link>
       </nav>
