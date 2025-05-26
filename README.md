@@ -1,17 +1,20 @@
 // task manager app
 
-A simple task manager built with HTML, CSS, and JavaScript.  
-Users can add, edit, and delete tasks.  
-Tasks are saved locally using `localStorage`.
+a simple crud app that resembles a todo list,
+although it may not be finished, it uses React.js on the frontend
+express.js with node on the backend and mongoDB for the database.
 
 // features
-- Add new tasks
-- Edit existing tasks
-- Delete tasks
-- Persistent storage with `localStorage`
+- create tasks
+- delete tasks
+- check off tasks
+- edit tasks (well not yet for now)
+  
+// attention!
+it is still in its beta form so it might still be filled with bugs!
 
-// how to run
-1. Clone the repository
-2. Open `index.html` in your browser
+i know that this project is extremely unfinished and janky but in my defense
+it is my first ever full stack app i've built in general, and the first time i've
+used react on the frontend, so take it with a grain of salt
 
-// built by me [fire emoji]
+// built by Niksani59's whopping 5 brain cells 🥀🥀🥀🥀
