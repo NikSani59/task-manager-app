@@ -1,5 +1,6 @@
 import { useState, useEffect, use } from "react";
 import { addTask, deleteTask, updateTask, getTasks } from "../services/api";
+import TaskItem  from "./TaskItem";
 import "../css/Taskform.css";
 
 function TaskForm({ refresh }) {
@@ -43,9 +44,16 @@ function TaskForm({ refresh }) {
     }
   }
   
-  const handleEditTask = (id) => {
-
+  const handleEditTask = async (id, newName) => {
+  try {
+    await updateTask(id, { name: newName });
+    fetchTasks(); // refresh list
+  } catch (err) {
+    console.error("Error updating task:", err);
+    alert("Failed to update task");
   }
+};
+
 
 
   return (
@@ -62,34 +70,24 @@ function TaskForm({ refresh }) {
         </form>
         <div className="list-container">
           <ul className="task-list">
-            {tasks && tasks.map((task) => (
-              <li className="task-item" key={task._id}>
-                <input
-                  type="checkbox"
-                  className="task-checkbox"
-                  id={`task-checkbox-${task._id}`}
-                  checked={task.completed}
-                  onChange={() => handleToggleComplete(task._id)}
-                />
-                <span id={`task-${task._id}`} className="task-text">
-                  {task.name}
-                </span>
-                <button
-                  type="button"
-                  id={`editBtn-${task._id}`}
-                  onClick={() => handleEditTask(task._id)}
-                >
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  id={`deleteBtn-${task._id}`}
-                  onClick={() => handleDeleteTask(task._id)}
-                >
-                  Delete
-                </button>
-              </li>
+            {tasks.map((task) => (
+              <TaskItem
+                key={task._id}
+                task={task}
+                onToggle={async (id) => {
+                  try {
+                    await updateTask(id, { completed: !task.completed });
+                    fetchTasks(); 
+                  } catch (err) {
+                    console.error("Error toggling task:", err);
+                    alert("Failed to toggle task");
+                  }
+                }}
+                onEdit={handleEditTask}
+                onDelete={handleDeleteTask}
+              />
             ))}
+              
           </ul>
         </div>
       </section>

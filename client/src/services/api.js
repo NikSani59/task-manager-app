@@ -13,11 +13,14 @@ export const addTask = async (name) => {
   return res.json();
 };
 
-export const updateTask = (id, name) =>
+export const updateTask = (id, data) =>
   fetch(`/tasks/${id}`, {
     method: "PUT",
-    headers,
-    body: JSON.stringify({ name }),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then(res => {
+    if (!res.ok) throw new Error("Failed to update task");
+    return res.json();
   });
   
 export const deleteTask = async (id) => {
