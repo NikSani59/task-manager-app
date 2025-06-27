@@ -29,6 +29,15 @@ main {
     --color-primary-hover: #5f6486;
     --box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.3);
 }
+
+.dark-mode {
+  --color-bg: #18191a;
+  --color-primary: #232946;
+  --color-secondary: #393e46;
+  --color-primary-hover: #3a3f5c;
+  --box-shadow: 2px 2px 8px hsla(0, 0%, 0%, 0.6);
+}
+
 * {
     font-family: var(--font-body);
     margin: 0;

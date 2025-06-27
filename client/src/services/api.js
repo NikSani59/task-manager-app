@@ -1,4 +1,7 @@
+// API service for task management
+// This file contains functions to interact with the backend API for tasks
 const headers = { "Content-Type": "application/json" };
+
 
 export const getTasks = () => 
     fetch("/tasks").then((r) => r.json());
