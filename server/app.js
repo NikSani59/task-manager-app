@@ -1,15 +1,16 @@
-import express from 'express';
-import path from 'path';
-import tasks from './routes/tasks.js';
-import { fileURLToPath } from 'url';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import express from "express";
+import path from "path";
+import tasks from "./routes/tasks.js";
+import { fileURLToPath } from "url";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
 
 // Load environment variables from .env file
 dotenv.config();
 
 // ENVIRONMENT VARIABLES
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGO_URL;
 const port = process.env.PORT || 3000;
 
 // set up express
@@ -23,24 +24,25 @@ const __dirname = path.dirname(__filename);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
+// Allow requests from the frontend
+app.use(
+  cors({
+    origin: "localhost:5173", // Adjust this to your frontend's URL
+  })
+);
 
 // routes
-app.use('/tasks', tasks);
-
-// Fallback to index.html for SPA routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
-
+app.use("/tasks", tasks);
 
 // connect server to the database (mongoDB)
-mongoose.connect(mongoURI).then(() => {
-  console.log('MongoDB connected successfully', mongoURI);
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+mongoose
+  .connect(mongoURI)
+  .then(() => {
+    console.log("MongoDB connected successfully", mongoURI);
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
   });
-}).catch((err) => {
-  console.error('MongoDB connection error:', err);
-})
-
